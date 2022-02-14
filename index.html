@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="contextmenu.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <span id="clickHandler">
+        <h1 id="welcome"></h1>
+        <div id="widgetsContainer">
+            <div id="articles" class="widget">
+                <h2 class="widgetHeader">Wiadomości</h2>
+                <div id="articlesList"></div>
+                <div id="showMoreArticles">Pokaż więcej</div>
+                <div class="widgetConnectionErrorMessage">Brak połączenia z internetem.</div>
+            </div>
+    
+            <div id="weather" class="widget">
+                <input type="text" id="weatherCityInput" value="Elbląg">
+                <button id="weatherCityButton">Ustaw</button>
+                <div id="weatherContainerMain">
+                    <img src="" id="weatherIcon">
+                    <div id="weatherTemperature"></div>
+                </div>
+                <div id="weatherMore">
+                    <div class="weatherMoreBox">
+                        <div class="weatherMoreBoxTitle">Odcz. temp.</div>
+                        <div class="weatherMoreBoxValue" id="feelsLike"></div>
+                    </div>
+                    <div class="weatherMoreBox">
+                        <div class="weatherMoreBoxTitle">Ciśnienie</div>
+                        <div class="weatherMoreBoxValue" id="pressure"></div>
+                    </div>
+                    <div class="weatherMoreBox">
+                        <div class="weatherMoreBoxTitle">Zachmurzenie</div>
+                        <div class="weatherMoreBoxValue" id="clouds"></div>
+                    </div>
+                    <div class="weatherMoreBox">
+                        <div class="weatherMoreBoxTitle">Zachód słońca</div>
+                        <div class="weatherMoreBoxValue" id="sunset">17:32</div>
+                    </div>
+                    <div id="weatherDescription"></div>
+                </div>
+                <div class="widgetConnectionErrorMessage">Brak połączenia z internetem.</div>
+            </div>
+
+            <div id="covid" class="widget">
+                <div id="covidControls">
+                    <button class="covidControlsButton" id="previous"><</button>
+                    <div id="covidControlsText">Zakażenia</div>
+                    <button class="covidControlsButton" id="next">></button>
+                </div>
+                <div id="covidChart">
+                    <canvas id="covidChartCanvas"></canvas>
+                </div>
+                <div id="covidMoreData">
+                    <div class="covidDataBox" id="cases">Zakażenia <br> 5205456 <br> (49000)</div>
+                    <div class="covidDataBox" id="deaths">Śmierci <br> 525684 <br> (1293)</div>
+                </div>
+                <div class="widgetConnectionErrorMessage">Brak połączenia z internetem.</div>
+            </div>
+
+            <div id="clock" class="widget">
+                <div id="clockTime">21:18</div>
+                <div id="clockDate">Niedziela, 13 stycznia 2022</div>
+            </div>
+
+            <div id="quote" class="widget">
+                <div id="quoteContent"></div>
+                <div id="quoteAuthor"></div>
+                <div class="widgetConnectionErrorMessage">Brak połączenia z internetem.</div>
+                <div id="quoteSaveOptions">
+                    <div id="refreshQuote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.944 12.979c-.489 4.509-4.306 8.021-8.944 8.021-2.698 0-5.112-1.194-6.763-3.075l1.245-1.633c1.283 1.645 3.276 2.708 5.518 2.708 3.526 0 6.444-2.624 6.923-6.021h-2.923l4-5.25 4 5.25h-3.056zm-15.864-1.979c.487-3.387 3.4-6 6.92-6 2.237 0 4.228 1.059 5.51 2.698l1.244-1.632c-1.65-1.876-4.061-3.066-6.754-3.066-4.632 0-8.443 3.501-8.941 8h-3.059l4 5.25 4-5.25h-2.92z"/></svg></div>
+                    <div id="saveQuote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.173l2.335 4.817 5.305.732-3.861 3.71.942 5.27-4.721-2.524-4.721 2.525.942-5.27-3.861-3.71 5.305-.733 2.335-4.817zm0-4.586l-3.668 7.568-8.332 1.151 6.064 5.828-1.48 8.279 7.416-3.967 7.416 3.966-1.48-8.279 6.064-5.827-8.332-1.15-3.668-7.569z"/></svg></div>
+                    <div id="showSavedQuotes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 24h-17c-1.657 0-3-1.343-3-3v-18c0-1.657 1.343-3 3-3h17v24zm-2-4h-14.505c-1.375 0-1.375 2 0 2h14.505v-2zm0-18h-15v16h15v-16zm-3 3v3h-9v-3h9z"/></svg></div>
+                </div>
+            </div>
+    
+            <div id="console" class="widget">
+                <div id="consoleLogs"></div>
+            </div>
+
+            <div id="todos" class="widget">
+                <div id="todosMenu">
+                    <div id="addTodoCategory">
+                        <button id="showAddTodoCategoryForm">+</button>
+                        <div id="addTodoCategoryForm">
+                            <button id="addTodoCategoryButton">+</button>
+                            <input type="text" id="addTodoCategoryText" placeholder="Title" maxlength="15">
+                        </div>
+                    </div>
+                    <ul id="todosCategories"></ul>
+                    <button id="todosFullscreenButton"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"/></svg></button>
+                </div>
+                <div id="todosContainer">
+                    <div id="todosList">
+                        <div id="addTodoForm">
+                            <input type="text" id="addTodoFormText" placeholder="Co masz do zrobienia?">
+                            <button id="addTodoButton">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="widgetEmpty" id="todosEmpty">
+                    <p>Nie masz żadnego Todo.</p>
+                    <button class="widgetEmptyButton" id="todosEmptyButton">Dodaj Todo</button>
+                </div>
+            </div>
+
+            <div id="calculator" class="widget">
+                <div id="calculatorResult">0</div>
+                <div id="calculatorButtons">
+                    <div class="calculatorButton num" data-value="7">7</div>
+                    <div class="calculatorButton num" data-value="8">8</div>
+                    <div class="calculatorButton num" data-value="9">9</div>
+                    <div class="calculatorButton" data-value="/">÷</div>
+                    <div class="calculatorButton dark" data-value="back">🠔</div>
+                    <div class="calculatorButton num" data-value="4">4</div>
+                    <div class="calculatorButton num" data-value="5">5</div>
+                    <div class="calculatorButton num" data-value="6">6</div>
+                    <div class="calculatorButton" data-value="*">x</div>
+                    <div class="calculatorButton dark" data-value="clear">C</div>
+                    <div class="calculatorButton num" data-value="1">1</div>
+                    <div class="calculatorButton num" data-value="2">2</div>
+                    <div class="calculatorButton num" data-value="3">3</div>
+                    <div class="calculatorButton" data-value="-">-</div>
+                    <div class="calculatorButton num wide" data-value="0">0</div>
+                    <div class="calculatorButton" data-value=".">,</div>
+                    <div class="calculatorButton" data-value="+">+</div>
+                    <div class="calculatorButton high dark" data-value="result">=</div>
+                </div>
+            </div>
+
+            <div id="notepad" class="widget">
+                <div id="notepadMenu">
+                    <div id="addNotepadCategory">
+                        <button id="showAddNotepadCategoryForm">+</button>
+                        <div id="addNotepadCategoryForm">
+                            <button id="addNotepadCategoryButton">+</button>
+                            <input type="text" id="addNotepadCategoryText" placeholder="Title" maxlength="15">
+                        </div>
+                    </div>
+                    <ul id="notepadCategories"></ul>
+                    <button id="notepadFullscreenButton"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 12c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm9 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"/></svg></button>
+                </div>
+                <div class="widgetEmpty" id="notepadEmpty">
+                    <p>Twój notatnik jest pusty.</p>
+                    <button class="widgetEmptyButton" id="notepadEmptyButton">Dodaj notatkę</button>
+                </div>
+                <textarea id="notepadTextarea" placeholder="Notatnik jest pusty" spellcheck="false"></textarea>
+            </div>
+        </div>
+    </span>
+
+
+    <div id="savedQuotes">
+        <div id="savedQuotesEmpty">Nie masz jeszcze zapisanych cytatów</div>
+        <button id="hideSavedQuotes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg></button>
+        <h2 class="widgetHeader">Zapisane cytaty</h2>
+        <div id="savedQuotesList"></div>
+    </div>
+
+    <div id="confirmation">
+        <div id="confirmationButtons">
+            <button id="contifirmationConfirm">Potwierdź</button>
+            <button id="contifirmationCancel">Anuluj</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.contextMenu.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-contextmenu/2.7.1/jquery.ui.position.js"></script> -->
+    <script src="main.js"></script>
+</body>
+</html>
